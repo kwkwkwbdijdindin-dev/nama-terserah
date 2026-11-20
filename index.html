@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portofolio Ahmad Galih Ananta – Teknik Industri</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap">
+<style>
+:root{--bg:#eef3f8;--card:#fff;--ink:#0f2a43;--mute:#5a6f84;--line:#c9d6e3;--blue:#2f6fa3;--acc:#e8751a;--grid:rgba(47,111,163,.09);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1b2b;--card:#112940;--ink:#e6eef6;--mute:#93a9bf;--line:#26425c;--blue:#6fb0e6;--acc:#ff9440;--grid:rgba(111,176,230,.07);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0b1b2b;--card:#112940;--ink:#e6eef6;--mute:#93a9bf;--line:#26425c;--blue:#6fb0e6;--acc:#ff9440;--grid:rgba(111,176,230,.07);color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.65 "IBM Plex Sans",system-ui,sans-serif;
+background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:32px 32px}
+h1,h2,h3{font-family:Archivo,"Arial Narrow",sans-serif;line-height:1.1;margin:0}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+section{padding:72px 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(28px,5vw,42px);font-weight:800;min-height:1.2em}
+.sub{color:var(--mute);margin:8px 0 32px;max-width:60ch}
+.caret::after{content:"";display:inline-block;width:.08em;height:.95em;background:var(--acc);margin-left:3px;vertical-align:-.1em;animation:blink .8s steps(1) infinite}
+.done::after{display:none}
+@keyframes blink{50%{opacity:0}}
+
+/* tirai pembuka */
+#curtain{position:fixed;inset:0;z-index:50;display:flex;pointer-events:none}
+#curtain .half{flex:1;background:#0f2a43;transition:transform 1.1s cubic-bezier(.77,0,.18,1)}
+#curtain.open .l{transform:translateX(-101%)}
+#curtain.open .r{transform:translateX(101%)}
+#curtain .msg{position:absolute;inset:0;display:grid;place-items:center;color:#e6eef6;font:500 clamp(16px,3.5vw,24px)/1.4 "IBM Plex Sans",monospace;text-align:center;padding:20px;transition:opacity .4s}
+#curtain.open .msg{opacity:0}
+#curtain:not(.open){pointer-events:auto}
+
+/* hero */
+.hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;border-top:0;padding:48px 0}
+.hero .wrap{display:block}
+.tag{color:var(--acc);font-weight:500;margin:0 0 12px}
+h1{font-size:clamp(40px,9vw,92px);font-weight:800;letter-spacing:-.02em;min-height:2.2em}
+.lead{margin:20px 0 28px;max-width:46ch;color:var(--mute);min-height:3.4em}
+.meta{display:grid;grid-template-columns:repeat(3,auto);gap:8px 28px;justify-content:start;font-size:14px}
+.meta b{display:block;font-family:Archivo;font-size:12px;letter-spacing:.06em;color:var(--blue)}
+.photo{aspect-ratio:3/4;border:2px solid var(--ink);position:relative;display:grid;place-items:center;text-align:center;padding:24px;color:var(--mute);font-size:14px;background:var(--card)}
+.photo::before,.photo::after{content:"";position:absolute;width:26px;height:26px;border:3px solid var(--acc)}
+.photo::before{top:-8px;left:-8px;border-right:0;border-bottom:0}
+.photo::after{bottom:-8px;right:-8px;border-left:0;border-top:0}
+
+/* animasi bergeser masuk */
+.rv{opacity:0;transform:translateX(-60px);transition:opacity .7s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.r{transform:translateX(60px)}
+.rv.in{opacity:1;transform:none}
+
+.two{display:grid;grid-template-columns:1.4fr 1fr;gap:32px}
+.card{background:var(--card);border:1px solid var(--line);padding:24px}
+.card h3{font-size:19px;margin-bottom:8px}
+.card p{margin:0;color:var(--mute)}
+dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:10px 20px;font-size:15px}
+dt{color:var(--blue);font-weight:500}dd{margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.grid .card{border-top:3px solid var(--blue)}
+.scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:520px;background:var(--card)}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);font-size:15px}
+th{font-family:Archivo;color:var(--blue);font-size:14px}
+.lvl{display:inline-block;padding:2px 10px;border:1px solid var(--blue);font-size:13px}
+.ph{color:var(--mute);font-style:italic}
+.proj{display:grid;gap:18px}
+.proj .card{border-left:4px solid var(--acc)}
+.proj ul{margin:10px 0 0;padding:0;list-style:none;color:var(--mute);font-size:15px}
+.proj li{margin-bottom:6px}.proj li b{color:var(--ink);font-weight:500}
+.steps{display:grid;gap:0;counter-reset:s;position:relative}
+.step{display:grid;grid-template-columns:56px 1fr;gap:16px;padding-bottom:26px;position:relative}
+.step::before{counter-increment:s;content:counter(s);width:40px;height:40px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font:700 16px Archivo;z-index:1}
+.step::after{content:"";position:absolute;left:19px;top:40px;bottom:0;width:2px;background:var(--line)}
+.step:last-child::after{display:none}
+.step h3{font-size:19px}.step p{margin:2px 0 0;color:var(--mute)}
+.quote{margin-top:12px;border:1px dashed var(--blue);padding:20px;color:var(--mute)}
+.tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.tags span{border:1px solid var(--line);background:var(--card);padding:6px 14px;font-size:14px}
+ul.t{margin:0;padding-left:20px;color:var(--mute)}
+.contact a,.contact div{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);color:var(--ink);text-decoration:none}
+.contact span:first-child{width:130px;color:var(--blue);font-family:Archivo;font-size:13px;letter-spacing:.06em}
+footer{padding:48px 0 64px;border-top:1px solid var(--line);text-align:center;color:var(--mute);font-size:14px}
+footer strong{display:block;font:800 clamp(24px,5vw,36px) Archivo;color:var(--ink);min-height:1.2em;margin-bottom:8px}
+.btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px;opacity:0;transform:translateY(10px);transition:opacity .5s,transform .5s;pointer-events:none}.btns.show{opacity:1;transform:none;pointer-events:auto}
+.btns button,.mu{font:500 15px "IBM Plex Sans",system-ui,sans-serif;padding:12px 22px;border:2px solid #e6eef6;background:transparent;color:#e6eef6;cursor:pointer}
+#b1{background:#e8751a;border-color:#e8751a;color:#0f2a43}
+.btns button:focus-visible,.mu:focus-visible{outline:3px solid #ff9440;outline-offset:3px}
+.mu{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:40;background:#0f2a43;display:none}.mu.on{display:block}
+#pg{position:fixed;top:0;left:0;height:4px;width:100%;background:var(--acc);transform-origin:left;transform:scaleX(0);z-index:60}
+.hero{position:relative;overflow:hidden;background:radial-gradient(60% 50% at 85% 15%,rgba(232,117,26,.16),transparent 70%),radial-gradient(55% 55% at 10% 90%,rgba(47,111,163,.2),transparent 70%)}
+.hero .wrap{position:relative;z-index:1}
+.gear{position:absolute;color:var(--blue);opacity:.16;animation:spin 48s linear infinite}
+.g1{width:min(60vw,460px);right:-8%;top:8%}
+.g2{width:min(34vw,240px);right:24%;bottom:-6%;color:var(--acc);animation-direction:reverse;animation-duration:30s}
+@keyframes spin{to{transform:rotate(360deg)}}
+h1{letter-spacing:-.03em}
+.meta>div{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--acc);padding:10px 16px}
+h2{border-left:6px solid var(--acc);padding-left:16px}
+.card{transition:transform .3s,box-shadow .3s,border-color .3s}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 30px -14px rgba(15,42,67,.35);border-color:var(--blue)}
+.rv.in.card:hover{transform:translateY(-4px)}
+.step h3{color:var(--ink)}
+.lvl{background:rgba(47,111,163,.1)}
+.tags span{transition:background .2s,color .2s}.tags span:hover{background:var(--blue);color:var(--bg)}
+@media(max-width:600px){table,tbody,tr,td{display:block;min-width:0}table{min-width:0;background:transparent}tr:first-child{display:none}tr{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--blue);margin-bottom:12px;padding:10px 14px}td{border:0;padding:3px 0}td:first-child{font:700 17px Archivo}}
+@media(max-width:480px){.wrap{padding:0 16px}.meta{grid-template-columns:1fr}.btns{flex-direction:column;align-items:stretch}.btns button{width:100%}.step{grid-template-columns:48px 1fr;gap:12px}.card{padding:18px}h2{padding-left:12px;border-left-width:5px}.gear{opacity:.1}}
+@media(min-width:1200px){.wrap{max-width:1120px}body{font-size:17px}}
+@media(max-width:760px){.hero .wrap,.two{grid-template-columns:1fr}.photo{max-width:260px;aspect-ratio:1}.meta{grid-template-columns:1fr 1fr}section{padding:56px 0}}
+@media(prefers-reduced-motion:reduce){.rv,.rv.r{opacity:1;transform:none;transition:none}#curtain .half{transition:none}.btns{transition:none}.caret::after{animation:none}}
+</style>
+</head>
+<body>
+
+<div id="curtain" aria-hidden="true"><div class="half l"></div><div class="half r"></div><div class="msg"><div><p id="cmp"><span id="cm" class="caret"></span></p><div class="btns" id="bt"><button id="b1" type="button">Buka dengan musik</button><button id="b2" type="button">Buka tanpa musik</button></div></div></div></div>
+
+<header class="hero">
+<svg class="gear g1" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="22" stroke-dasharray="12 9.6"/><circle cx="100" cy="100" r="62" fill="none" stroke="currentColor" stroke-width="6"/><circle cx="100" cy="100" r="22" fill="none" stroke="currentColor" stroke-width="6"/></svg>
+<svg class="gear g2" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="22" stroke-dasharray="12 9.6"/><circle cx="100" cy="100" r="62" fill="none" stroke="currentColor" stroke-width="6"/><circle cx="100" cy="100" r="22" fill="none" stroke="currentColor" stroke-width="6"/></svg>
+<div class="wrap">
+<div>
+<p class="tag" id="tg"></p>
+<h1 id="nm"></h1>
+<p class="lead" id="ld"></p>
+<div class="meta rv">
+<div><b>INSTITUSI</b>Univ PGRI</div><div><b>BIDANG MINAT</b>Proses, Kualitas, Sistem</div><div><b>PERIODE</b>2026</div>
+</div>
+</div>
+
+</div>
+</header>
+
+<section><div class="wrap">
+<h2 data-type="Tentang saya"></h2>
+<p class="sub">Perkenalan singkat dan arah pengembangan diri selama menempuh pendidikan.</p>
+<div class="two">
+<div class="rv">
+<p>Saya mahasiswa Teknik Industri yang sedang membangun pemahaman tentang hubungan antara manusia, mesin, material, metode, dan sistem kerja. Saya tertarik mempelajari bagaimana suatu proses dirancang, dianalisis, dan ditingkatkan agar lebih efektif, efisien, aman, dan berkualitas.</p>
+<p>Lewat perkuliahan dan tugas, saya mengembangkan pola pikir sistematis, ketelitian mengolah informasi, kemampuan memecahkan masalah, dan kemauan terus belajar. Portofolio ini mendokumentasikan proses belajar, latihan, dan proyek yang relevan.</p>
+</div>
+<div class="rv r">
+<div class="card"><h3>Profil singkat</h3>
+<dl><dt>Program studi</dt><dd>Teknik Industri</dd><dt>Institusi</dt><dd>Univ PGRI</dd></dl></div>
+<div class="card" style="margin-top:16px"><h3>Tujuan portofolio</h3><p>Menunjukkan perkembangan kemampuan akademik, cara berpikir, dan contoh penerapan materi Teknik Industri. Isinya akan diperbarui seiring proyek dan pengalaman baru.</p></div>
+</div>
+</div>
+</div></section>
+
+<section><div class="wrap">
+<h2 data-type="Pendidikan & minat"></h2>
+<p class="sub">Fondasi akademik dan bidang yang ingin terus dipelajari.</p>
+<div class="card rv" style="margin-bottom:22px"><h3>Program Studi Teknik Industri</h3><p>Univ PGRI. Fokus belajar: sistem industri, proses produksi, kualitas, gambar teknik, dasar sains, dan pemecahan masalah.</p></div>
+<div class="grid">
+<div class="card rv"><h3>Perancangan & gambar teknik</h3><p>Membaca, memahami, dan menyajikan bentuk komponen lewat gambar teknik dan latihan gambar 2D.</p></div>
+<div class="card rv r"><h3>Proses produksi & sistem kerja</h3><p>Memahami alur proses, penggunaan sumber daya, dan peluang perbaikan sistem kerja.</p></div>
+<div class="card rv"><h3>Pengendalian kualitas</h3><p>Mempelajari peluang cacat, pemeriksaan produk, dan penggunaan data untuk keputusan.</p></div>
+<div class="card rv r"><h3>Analisis & pemecahan masalah</h3><p>Memakai matematika, fisika, kimia, dan logika untuk menganalisis persoalan teknik.</p></div>
+</div>
+<p class="sub rv" style="margin-top:28px">Ke depan, saya ingin memperkuat kemampuan teknis secara bertahap, rutin mendokumentasikan pekerjaan, dan menyampaikan hasil analisis dengan jelas.</p>
+</div></section>
+
+<section><div class="wrap">
+<h2 data-type="Keahlian"></h2>
+<p class="sub">Kemampuan awal berdasarkan materi dan latihan yang pernah dikerjakan.</p>
+<div class="scroll rv"><table>
+<tr><th>Keterampilan</th><th>Penerapan / bukti</th><th>Tingkat</th></tr>
+<tr><td>Gambar teknik</td><td>Membaca bentuk, ukuran, dan tampak benda</td><td><span class="lvl">Dasar</span></td></tr>
+<tr><td>AutoCAD 2D</td><td>LINE, RECTANG, CIRCLE, OFFSET, TRIM, MOVE, COPY</td><td><span class="lvl">Pemula</span></td></tr>
+<tr><td>Microsoft Word</td><td>Menyusun laporan dan dokumen tugas</td><td><span class="lvl">Dasar</span></td></tr>
+<tr><td>Microsoft PowerPoint</td><td>Menyusun materi presentasi</td><td><span class="lvl">Dasar</span></td></tr>
+<tr><td>Microsoft Excel</td><td>Mengolah tabel dan perhitungan sederhana</td><td><span class="lvl">Dasar</span></td></tr>
+<tr><td>Logika & flowchart</td><td>Menyusun urutan input–proses–output</td><td><span class="lvl">Dasar</span></td></tr>
+<tr><td>Analisis kuantitatif</td><td>Peluang, nilai harapan, perhitungan dasar</td><td><span class="lvl">Dasar</span></td></tr>
+<tr><td>Komunikasi & kerja tim</td><td>Diskusi dan tugas kelompok</td><td><span class="lvl">Dasar</span></td></tr>
+</table></div>
+<div class="tags rv r"><span>Ketelitian</span><span>Kemauan belajar</span><span>Berpikir sistematis</span><span>Pemecahan masalah</span><span>Komunikasi</span><span>Kolaborasi tim</span></div>
+</div></section>
+
+<section><div class="wrap">
+<h2 data-type="Proyek akademik"></h2>
+<p class="sub">Contoh pekerjaan perkuliahan yang relevan. Tambahkan foto atau hasil asli pada tiap proyek.</p>
+<div class="proj">
+<div class="card rv"><h3>Gambar teknik & latihan AutoCAD 2D</h3><ul><li><b>Tujuan:</b> memahami cara menyajikan bentuk dan ukuran benda secara teknis.</li><li><b>Aktivitas:</b> mempelajari area kerja, command line, satuan, dan perintah dasar LINE, RECTANG, CIRCLE, OFFSET, TRIM, MOVE, COPY.</li><li><b>Hasil belajar:</b> alur pembuatan gambar 2D dan pentingnya ketelitian ukuran.</li><li><b>Bukti:</b> tangkapan layar AutoCAD, lembar gambar, atau foto latihan.</li></ul></div>
+<div class="card rv r"><h3>Flowchart & logika pemrograman</h3><ul><li><b>Tujuan:</b> menyusun urutan penyelesaian masalah secara terstruktur.</li><li><b>Aktivitas:</b> mengidentifikasi input, proses, keputusan, dan output, lalu menyajikannya dengan simbol flowchart.</li><li><b>Hasil belajar:</b> memahami alur logika sebelum menjadi instruksi program.</li><li><b>Bukti:</b> diagram flowchart dan contoh pseudocode.</li></ul></div>
+<div class="card rv"><h3>Analisis peluang & pengendalian kualitas</h3><ul><li><b>Tujuan:</b> memakai probabilitas untuk membaca kondisi kualitas produk.</li><li><b>Aktivitas:</b> menghitung peluang produk cacat, peluang gabungan, dan nilai harapan jumlah produk cacat.</li><li><b>Hasil belajar:</b> data probabilitas membantu evaluasi pemeriksaan dan kualitas.</li><li><b>Bukti:</b> tabel data, langkah perhitungan, interpretasi hasil.</li></ul></div>
+</div>
+</div></section>
+
+<section><div class="wrap">
+<h2 data-type="Studi kasus lain"></h2>
+<p class="sub">Contoh analisis lintas mata kuliah.</p>
+<div class="grid">
+<div class="card rv"><h3>Sentra industri genteng</h3><p>Memahami proses usaha dan pengelolaan industri genteng: bahan baku, tahapan produksi, tenaga kerja, peralatan, kualitas, penyimpanan, dan distribusi. Lanjutkan dengan data observasi, identifikasi masalah, dan usulan perbaikan.</p></div>
+<div class="card rv r"><h3>Kimia material & sifat bahan</h3><p>Menghubungkan jenis ikatan kimia dengan kekuatan, titik leleh, dan daya hantar listrik. Material dipilih sesuai fungsi, kondisi kerja, dan kebutuhan proses.</p></div>
+<div class="card rv"><h3>Dasar fisika & perhitungan teknik</h3><p>Menerapkan rumus fisika dengan pola diketahui–ditanya–jawab, satuan yang benar, dan pemeriksaan hasil.</p></div>
+</div>
+<p class="sub rv" style="margin-top:24px">Cantumkan hanya proyek yang benar-benar pernah kamu kerjakan, lengkap dengan hasil aslinya.</p>
+</div></section>
+
+<section><div class="wrap">
+<h2 data-type="Cara saya bekerja"></h2>
+<p class="sub">Alur sederhana untuk tugas dan studi kasus Teknik Industri.</p>
+<div class="steps">
+<div class="step rv"><div><h3>Memahami masalah</h3><p>Membaca instruksi, menentukan tujuan, dan mengidentifikasi informasi yang ada.</p></div></div>
+<div class="step rv"><div><h3>Mengumpulkan data</h3><p>Mencatat ukuran, angka, referensi, kebutuhan, atau kondisi proses yang relevan.</p></div></div>
+<div class="step rv"><div><h3>Menganalisis</h3><p>Memilih konsep, alat, rumus, atau metode yang sesuai.</p></div></div>
+<div class="step rv"><div><h3>Menyusun solusi</h3><p>Membuat gambar, perhitungan, flowchart, tabel, atau usulan perbaikan.</p></div></div>
+<div class="step rv"><div><h3>Memeriksa hasil</h3><p>Mengecek ketepatan, satuan, kelengkapan, dan kesesuaian dengan tujuan.</p></div></div>
+<div class="step rv"><div><h3>Mendokumentasikan</h3><p>Menyimpan hasil akhir dan menjelaskan proses serta pembelajarannya.</p></div></div>
+</div>
+<div class="quote rv r">Saya mengutamakan ketelitian, keteraturan, keselamatan, dan alasan yang jelas di balik setiap keputusan. Jika data belum cukup, saya mencatat keterbatasannya dan tidak menarik kesimpulan melebihi bukti.</div>
+</div></section>
+
+<section><div class="wrap">
+<h2 data-type="Pengalaman & pengembangan diri"></h2>
+<p class="sub">Target belajar dan kegiatan yang ingin diikuti.</p>
+<div class="grid">
+
+
+<div class="card rv"><h3>Target berikutnya</h3><ul class="t"><li>Meningkatkan AutoCAD dan gambar teknik</li><li>Memperkuat Excel untuk olah data</li><li>Berlatih analisis proses dan kualitas</li><li>Ikut pelatihan yang relevan</li></ul></div>
+</div>
+</div></section>
+
+<section><div class="wrap">
+<h2 data-type="Penutup"></h2>
+<p class="sub">Bagi saya, portofolio adalah catatan proses: memahami masalah, mencoba solusi, menerima masukan, dan memperbaiki hasil. Saya terbuka untuk belajar dan berkolaborasi.</p>
+
+</div></section>
+
+<footer><div class="wrap"><strong data-type="Terus belajar. Terus bertumbuh."></strong>Ahmad Galih Ananta · Mahasiswa Teknik Industri</div></footer>
+
+<div id="pg"></div>
+<button id="mu" class="mu" type="button">Musik: mati</button>
+<script>
+var RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+function typeInto(el,text,speed,cb){
+  if(RM){el.textContent=text;el.classList.add("done");cb&&cb();return}
+  el.classList.add("caret");var i=0;
+  (function t(){el.textContent=text.slice(0,++i);
+    if(i<text.length)setTimeout(t,speed+Math.random()*speed*.6);
+    else{setTimeout(function(){el.classList.add("done")},700);cb&&cb()}})();
+}
+function hero(){
+  typeInto(document.getElementById("tg"),"Personal academic portfolio 2026",32,function(){
+    typeInto(document.getElementById("nm"),"Ahmad Galih Ananta",55,function(){
+      typeInto(document.getElementById("ld"),"Mengenal diri, mengembangkan kemampuan, dan mendokumentasikan proses belajar melalui karya akademik.",20);
+    });
+  });
+  document.querySelectorAll(".hero .rv").forEach(function(e,i){setTimeout(function(){e.classList.add("in")},400+i*300)});
+}
+var cur=document.getElementById("curtain"),mu=document.getElementById("mu");
+var AC,master,iv,nextT=0,barN=0,playing=false;
+var CH=[[57,60,64],[53,57,60],[48,52,55],[55,59,62]],PAT=[0,1,2,1,2,1,2,1];
+function fr(m){return 440*Math.pow(2,(m-69)/12)}
+function nt(t,m,d,v,ty){var o=AC.createOscillator(),g=AC.createGain();o.type=ty;o.frequency.value=fr(m);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.05);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(master);o.start(t);o.stop(t+d+.05)}
+function bar(t){var c=CH[barN%4];barN++;c.forEach(function(m){nt(t,m-12,3.4,.05,"triangle")});PAT.forEach(function(p,i){nt(t+i*.4,c[p]+12,1.3,.07,"sine")})}
+function pump(){while(nextT<AC.currentTime+3.5){bar(nextT);nextT+=3.2}}
+function playSynth(){try{if(!AC){AC=new(window.AudioContext||window.webkitAudioContext)();master=AC.createGain();master.gain.value=.6;master.connect(AC.destination)}AC.resume();nextT=AC.currentTime+.1;if(!iv)iv=setInterval(pump,1000);pump();playing=true;mu.textContent="Musik: nyala"}catch(e){}}
+function pause(){au.pause();if(AC)AC.suspend();playing=false;mu.textContent="Musik: mati"}
+var au=new Audio("tante.mp3"),useAu=true;au.loop=true;au.preload="auto";au.onerror=function(){useAu=false};
+function play(){if(!useAu){playSynth();return}var p=au.play();if(p&&p.then)p.then(function(){playing=true;mu.textContent="Musik: nyala"}).catch(function(){useAu=false;playSynth()});else{playing=true;mu.textContent="Musik: nyala"}}
+mu.onclick=function(){playing?pause():play()};
+var pg=document.getElementById("pg");
+addEventListener("scroll",function(){var h=document.documentElement;pg.style.transform="scaleX("+(h.scrollTop/((h.scrollHeight-h.clientHeight)||1))+")"},{passive:true});
+function openSite(withMusic){
+  document.getElementById("bt").classList.remove("show");
+  if(withMusic)play();
+  mu.classList.add("on");
+  cur.classList.add("open");setTimeout(hero,500);setTimeout(function(){cur.style.display="none"},1300);
+}
+document.getElementById("b1").onclick=function(){openSite(true)};
+document.getElementById("b2").onclick=function(){openSite(false)};
+typeInto(document.getElementById("cm"),"Selamat datang di portofolio Teknik Industri",38,function(){
+  setTimeout(function(){document.getElementById("bt").classList.add("show");document.getElementById("b1").focus()},500);
+});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){
+  if(!e.isIntersecting)return;var el=e.target;io.unobserve(el);
+  if(el.dataset.type){typeInto(el,el.dataset.type,45)}else el.classList.add("in");
+})},{threshold:.2});
+document.querySelectorAll("[data-type],.rv").forEach(function(e){if(!e.closest(".hero"))io.observe(e)});
+</script>
+</body>
+</html>
